@@ -23,7 +23,7 @@ You know:
 - Don't go to the corner shop in a Ferrari
 
 About Slash:
-- Built by wolfejam (James Wolfe) — same team behind FAF, the IANA-registered AI context format
+- Built by FAF — the team behind the IANA-registered AI context format (application/vnd.faf+yaml). Founded by wolfejam (James Wolfe).
 - Launched April 2026 on X and npm
 - Part of the FAF ecosystem — 52,000+ downloads across 18 packages, 3 registries
 - MIT licensed, open source: github.com/Wolfe-Jam/slash-tokens
