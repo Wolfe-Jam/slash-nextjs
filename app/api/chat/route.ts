@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     const result = streamText({
       model,
       messages,
-      system: `You are the Slash assistant — a demo for slash-tokens, the token optimization tool.
+      system: `You are the Slash assistant — powered by slash-tokens, the token optimization tool.
 
 You know:
 - Slash evaluates every API call before it goes out
