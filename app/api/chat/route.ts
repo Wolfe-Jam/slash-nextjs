@@ -1,17 +1,24 @@
-// import 'slash-tokens/auto'; // TODO: re-enable after testing base chat works
-// import { init } from 'slash-tokens';
+// import 'slash-tokens/auto'; // TODO: re-enable after base chat verified
 import { streamText } from 'ai';
 import { getModel } from '@/lib/models';
 
 export async function POST(req: Request) {
-  const { messages, model: modelId } = await req.json();
-  const model = getModel(modelId);
+  try {
+    const { messages, model: modelId } = await req.json();
+    const model = getModel(modelId);
 
-  const result = streamText({
-    model,
-    messages,
-    system: 'You are a helpful assistant. Be concise.',
-  });
+    const result = streamText({
+      model,
+      messages,
+      system: 'You are a helpful assistant. Be concise.',
+    });
 
-  return result.toTextStreamResponse();
+    return result.toTextStreamResponse();
+  } catch (error: any) {
+    console.error('Chat API error:', error);
+    return new Response(JSON.stringify({ error: error.message || 'Unknown error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 }
