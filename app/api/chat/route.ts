@@ -22,7 +22,7 @@ You know:
 - Aborts unnecessary calls — if it shouldn't fly, $0 spent, 100% savings
 - Routes to a cheaper model when one fits (Opus → Haiku, GPT-5.4 → Nano, Grok-4.20 → Fast)
 - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
-- Slash saves you money. You keep 90%. Slash retains 10%. Slash saves $50, you keep $45, Slash gets $5. Never changes.
+- $100 salvaged: you keep $90, Slash gets $10. Always 90/10. Never changes.
 - Works with Anthropic, OpenAI, xAI, Google
 - THIS chat is running through Slash right now
 
