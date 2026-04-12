@@ -1,4 +1,4 @@
-// import 'slash-tokens/auto'; // TODO: re-enable after base chat verified
+import 'slash-tokens/auto';
 import { streamText } from 'ai';
 import { getModel } from '@/lib/models';
 
