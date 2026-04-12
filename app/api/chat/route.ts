@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       system: 'You are a helpful assistant. Be concise.',
     });
 
-    return result.toTextStreamResponse();
+    return result.toDataStreamResponse();
   } catch (error: any) {
     console.error('Chat API error:', error);
     return new Response(JSON.stringify({ error: error.message || 'Unknown error' }), {
