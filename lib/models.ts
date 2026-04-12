@@ -22,6 +22,11 @@ const models: Record<ModelId, ModelConfig> = {
     provider: 'Anthropic',
     create: () => anthropic('claude-haiku-4-5-20251001'),
   },
+  'claude-3.5-sonnet': {
+    name: 'Claude 3.5 Sonnet',
+    provider: 'Anthropic',
+    create: () => anthropic('claude-3-5-sonnet-20241022'),
+  },
   'gpt-5.4': {
     name: 'GPT-5.4',
     provider: 'OpenAI',
