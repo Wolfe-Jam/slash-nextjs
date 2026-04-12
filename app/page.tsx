@@ -70,7 +70,7 @@ export default function Chat() {
                 <span className="text-[var(--slash-green)]">✓</span> Evaluates every call before it leaves your machine
               </div>
               <div className="flex items-center gap-2 text-[var(--muted)]">
-                <span className="text-[var(--slash-green)]">✓</span> Aborts unnecessary calls — $0 spent
+                <span className="text-[var(--slash-green)]">✓</span> Prevents unnecessary calls — $0 spent
               </div>
               <div className="flex items-center gap-2 text-[var(--muted)]">
                 <span className="text-[var(--slash-green)]">✓</span> Routes to cheaper model when one fits
@@ -86,14 +86,24 @@ export default function Chat() {
             key={msg.id}
             className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            <div
-              className={`max-w-[80%] rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
-                msg.role === 'user'
-                  ? 'bg-[var(--slash-red)] text-white'
-                  : 'bg-[#111] border border-[var(--border)] text-[var(--fg)]'
-              }`}
-            >
-              {msg.content}
+            <div className="group relative max-w-[80%]">
+              <div
+                className={`rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
+                  msg.role === 'user'
+                    ? 'bg-[var(--slash-red)] text-white'
+                    : 'bg-[#111] border border-[var(--border)] text-[var(--fg)]'
+                }`}
+              >
+                {msg.content}
+              </div>
+              {msg.role === 'assistant' && (
+                <button
+                  onClick={() => navigator.clipboard.writeText(msg.content)}
+                  className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 bg-[#222] border border-[var(--border)] rounded-md px-1.5 py-0.5 text-[10px] text-[var(--muted)] hover:text-[var(--fg)] transition-opacity"
+                >
+                  Copy
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -125,12 +135,22 @@ export default function Chat() {
           </button>
         </div>
         <div className="flex items-center justify-between mt-2 text-xs text-[var(--muted)]">
-          <a href="https://slashtokens.com" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
-            slashtokens.com
-          </a>
-          <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="hover:text-[var(--slash-green)]">
-            ⚡ Dashboard
-          </a>
+          <div className="flex items-center gap-3">
+            <a href="https://slashtokens.com" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
+              slashtokens.com
+            </a>
+            <a href="https://github.com/Wolfe-Jam/slash-nextjs" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
+              ⭐ GitHub
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
+              Share on X
+            </a>
+            <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="hover:text-[var(--slash-green)]">
+              ⚡ Dashboard
+            </a>
+          </div>
         </div>
       </form>
     </div>
