@@ -1,7 +1,7 @@
 'use client';
 
 import { useChat } from '@ai-sdk/react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const models = [
   { id: 'claude-opus', name: 'Claude Opus', provider: 'Anthropic' },
@@ -17,10 +17,16 @@ const models = [
 export default function Chat() {
   const [selectedModel, setSelectedModel] = useState('claude-opus');
 
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
     api: '/api/chat',
     body: { model: selectedModel },
   });
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
     <div className="flex flex-col h-screen max-w-3xl mx-auto">
@@ -98,6 +104,7 @@ export default function Chat() {
             </div>
           </div>
         )}
+        <div ref={messagesEndRef} />
       </div>
 
       {/* Input */}

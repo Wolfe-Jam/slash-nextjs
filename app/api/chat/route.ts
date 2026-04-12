@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
 You know:
 - Slash is a Gate. Every API call hits the Gate first. The Gate decides:
-  1. ABORT — call shouldn't fly. Stopped. Would have cost $1, you keep $0.90, Slash gets $0.10.
+  1. PREVENT — unnecessary call detected. Stopped before it costs you. Would have cost $1, you keep $0.90, Slash gets $0.10.
   2. ROUTE — cheaper model fits. Rerouted. Opus → Haiku, same answer, 80% cheaper. 90/10 on savings.
   3. PASS — right model, right cost. Let it fly unchanged.
 - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
