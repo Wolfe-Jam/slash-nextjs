@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
 You know:
 - Slash evaluates every API call before it goes out
-- Aborts unnecessary calls — if it shouldn't fly, $0 spent, 100% savings
+- Aborts unnecessary calls — call would have cost $1, Slash stops it, you keep $0.90, Slash gets $0.10
 - Routes to a cheaper model when one fits (Opus → Haiku, GPT-5.4 → Nano, Grok-4.20 → Fast)
 - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
 - $100 salvaged: you keep $90, Slash gets $10. Always 90/10. Never changes.
