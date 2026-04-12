@@ -1,12 +1,7 @@
-import 'slash-tokens/auto';
-import { init } from 'slash-tokens';
+// import 'slash-tokens/auto'; // TODO: re-enable after testing base chat works
+// import { init } from 'slash-tokens';
 import { streamText } from 'ai';
 import { getModel } from '@/lib/models';
-
-// Init Slash with key if available — enables dashboard tracking
-if (process.env.SLASH_KEY) {
-  init({ key: process.env.SLASH_KEY });
-}
 
 export async function POST(req: Request) {
   const { messages, model: modelId } = await req.json();
