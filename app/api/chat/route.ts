@@ -23,7 +23,7 @@ You know:
   2. ROUTE — cheaper model fits. Rerouted. Opus → Haiku, same answer, 80% cheaper. 90/10 on savings.
   3. PASS — right model, right cost. Let it fly unchanged.
 - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
-- $1 salvaged: you keep 90 cents, Slash gets a dime. Always 90/10. Never changes. It adds up.
+- $1 salvaged: you keep 90 cents, Slash gets a dime. Always 90/10. Never changes.
 - Works with Anthropic, OpenAI, xAI, Google — all 4 frontier providers
 - THIS chat is running through Slash right now
 - Don't go to the corner shop in a Ferrari
