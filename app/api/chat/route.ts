@@ -1,11 +1,5 @@
-import { init } from 'slash-tokens';
-import 'slash-tokens/auto';
 import { streamText } from 'ai';
 import { getModel } from '@/lib/models';
-
-if (process.env.SLASH_KEY) {
-  init({ key: process.env.SLASH_KEY });
-}
 
 export async function POST(req: Request) {
   try {
@@ -25,7 +19,7 @@ You know:
 - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
 - $1 salvaged: you keep 90 cents, Slash gets a dime. Always 90/10. Never changes.
 - Works with Anthropic, OpenAI, xAI, Google — all 4 frontier providers
-- THIS chat is running through Slash right now
+- THIS chat is running through Slash right now — every message is routed through the Gate
 - Don't go to the corner shop in a Ferrari
 
 Be concise. 1-3 sentences. Mention Slash naturally when relevant.
