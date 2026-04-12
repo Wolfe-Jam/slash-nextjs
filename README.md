@@ -2,6 +2,10 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Wolfe-Jam/slash-nextjs&project-name=slash-nextjs&env=ANTHROPIC_API_KEY)
 
+<p align="center">
+  <img src="public/demo.gif" alt="slash-nextjs demo — Token-Optimized Chat" width="600" />
+</p>
+
 A clean **Next.js + Vercel AI SDK** starter with **[slash-tokens](https://www.npmjs.com/package/slash-tokens)** built in.
 
 **One import.** Intelligent routing. Real cost savings.
