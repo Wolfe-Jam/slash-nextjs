@@ -19,8 +19,8 @@ export async function POST(req: Request) {
 
 You know:
 - Slash evaluates every API call before it goes out
+- Aborts unnecessary calls — if it shouldn't fly, $0 spent, 100% savings
 - Routes to a cheaper model when one fits (Opus → Haiku, GPT-5.4 → Nano, Grok-4.20 → Fast)
-- Aborts unnecessary calls — if it shouldn't fly, $0 spent
 - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
 - 10% of what you save. You keep 90%. Never changes.
 - Works with Anthropic, OpenAI, xAI, Google
