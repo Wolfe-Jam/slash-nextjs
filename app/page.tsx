@@ -4,6 +4,7 @@ import { useChat } from '@ai-sdk/react';
 import { useState } from 'react';
 
 const models = [
+  { id: 'claude-opus', name: 'Claude Opus', provider: 'Anthropic' },
   { id: 'claude-sonnet', name: 'Claude Sonnet', provider: 'Anthropic' },
   { id: 'claude-haiku', name: 'Claude Haiku', provider: 'Anthropic' },
   { id: 'gpt-5.4', name: 'GPT-5.4', provider: 'OpenAI' },
@@ -14,7 +15,7 @@ const models = [
 ];
 
 export default function Chat() {
-  const [selectedModel, setSelectedModel] = useState('claude-sonnet');
+  const [selectedModel, setSelectedModel] = useState('claude-opus');
 
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
     api: '/api/chat',

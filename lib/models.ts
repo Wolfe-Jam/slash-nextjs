@@ -5,6 +5,8 @@ import { google } from '@ai-sdk/google';
 
 export function getModel(id?: string) {
   switch (id) {
+    case 'claude-sonnet':
+      return anthropic('claude-sonnet-4-20250514');
     case 'claude-haiku':
       return anthropic('claude-haiku-4-5-20251001');
     case 'gpt-5.4':
@@ -17,8 +19,8 @@ export function getModel(id?: string) {
       return xai('grok-3-fast');
     case 'gemini-flash':
       return google('gemini-2.0-flash');
-    case 'claude-sonnet':
+    case 'claude-opus':
     default:
-      return anthropic('claude-sonnet-4-20250514');
+      return anthropic('claude-opus-4-20250514');
   }
 }
