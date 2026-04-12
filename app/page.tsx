@@ -50,13 +50,27 @@ export default function Chat() {
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48" className="mb-4 opacity-30">
+          <div className="pt-8 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" className="mx-auto mb-3 opacity-40">
               <polygon points="60,0 20,55 48,55 38,100 80,42 52,42" fill="#FFAA00"/>
             </svg>
-            <p className="text-[var(--muted)] text-lg">Every call optimized.</p>
-            <p className="text-[var(--muted)] text-sm mt-1">
+            <p className="text-[var(--fg)] text-lg font-bold mb-1">Every call optimized.</p>
+            <p className="text-[var(--muted)] text-sm mb-4">
               Slash evaluates, routes, and saves — automatically.
+            </p>
+            <div className="flex flex-col gap-2 max-w-xs mx-auto text-left text-sm">
+              <div className="flex items-center gap-2 text-[var(--muted)]">
+                <span className="text-[var(--slash-green)]">✓</span> Evaluates every call before it leaves your machine
+              </div>
+              <div className="flex items-center gap-2 text-[var(--muted)]">
+                <span className="text-[var(--slash-green)]">✓</span> Aborts unnecessary calls — $0 spent
+              </div>
+              <div className="flex items-center gap-2 text-[var(--muted)]">
+                <span className="text-[var(--slash-green)]">✓</span> Routes to cheaper model when one fits
+              </div>
+            </div>
+            <p className="text-[var(--muted)] text-xs mt-4 opacity-50">
+              4.8 KB WASM · sub-ms · zero deps
             </p>
           </div>
         )}
