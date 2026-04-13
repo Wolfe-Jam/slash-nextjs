@@ -42,7 +42,7 @@ export default function Chat() {
           <span className="text-xs text-[var(--muted)]">Token-Optimized Chat</span>
         </div>
         <div className="flex items-center gap-2">
-        <a href="https://slashtokens.com/faq" target="_blank" rel="noopener" className="w-6 h-6 flex items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] text-xs hover:text-[var(--fg)] hover:border-[var(--fg)] transition-colors">?</a>
+        <a href="https://slashtokens.com/faq" target="_blank" rel="noopener" className="w-6 h-6 flex items-center justify-center rounded-full border border-[var(--muted)] text-[var(--muted)] text-xs hover:bg-[var(--fg)] hover:text-[#0a0a0a] hover:border-[var(--fg)] active:bg-[var(--slash-red)] active:border-[var(--slash-red)] active:text-white transition-colors">?</a>
         <select
           value={selectedModel}
           onChange={(e) => setSelectedModel(e.target.value)}
