@@ -134,20 +134,31 @@ export default function Chat() {
             Send
           </button>
         </div>
-        <div className="flex items-center justify-between mt-2 text-xs text-[var(--muted)]">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between mt-2 text-xs">
+          <div className="flex items-center gap-3 text-[var(--muted)]">
             <a href="https://slashtokens.com" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
               slashtokens.com
             </a>
             <a href="https://github.com/Wolfe-Jam/slash-nextjs" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
               ⭐ GitHub
             </a>
+            {messages.length > 1 && (
+              <button
+                onClick={() => {
+                  const text = messages.map(m => `${m.role === 'user' ? 'You' : 'Slash'}: ${m.content}`).join('\n\n');
+                  navigator.clipboard.writeText(text);
+                }}
+                className="hover:text-[var(--fg)] cursor-pointer"
+              >
+                Copy All
+              </button>
+            )}
           </div>
           <div className="flex items-center gap-3">
-            <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
+            <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="text-[var(--muted)] hover:text-[var(--fg)]">
               Share on X
             </a>
-            <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="hover:text-[var(--slash-green)]">
+            <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="bg-[var(--slash-green)] text-[#0a0a0a] font-bold px-3 py-1 rounded-lg text-xs hover:opacity-90 transition-opacity">
               ⚡ Dashboard
             </a>
           </div>
