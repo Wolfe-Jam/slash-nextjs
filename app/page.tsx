@@ -41,6 +41,8 @@ export default function Chat() {
           </span>
           <span className="text-xs text-[var(--muted)]">Token-Optimized Chat</span>
         </div>
+        <div className="flex items-center gap-2">
+        <a href="https://slashtokens.com/faq" target="_blank" rel="noopener" className="w-6 h-6 flex items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] text-xs hover:text-[var(--fg)] hover:border-[var(--fg)] transition-colors">?</a>
         <select
           value={selectedModel}
           onChange={(e) => setSelectedModel(e.target.value)}
@@ -52,6 +54,7 @@ export default function Chat() {
             </option>
           ))}
         </select>
+        </div>
       </header>
 
       {/* Messages */}
@@ -123,7 +126,7 @@ export default function Chat() {
           <input
             value={input}
             onChange={handleInputChange}
-            placeholder="Type a message..."
+            placeholder="Type a message... or ask about Slash"
             className="flex-1 bg-[#111] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--fg)] outline-none focus:border-[var(--slash-red)] placeholder:text-[#555]"
           />
           <button
