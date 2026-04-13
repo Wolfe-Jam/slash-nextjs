@@ -157,6 +157,9 @@ export default function Chat() {
             <a href="https://slashtokens.com" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
               slashtokens.com
             </a>
+            <a href="https://mcpaas.live/slash/setup" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
+              🔑 Your Key
+            </a>
             <a href="https://github.com/Wolfe-Jam/slash-nextjs" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
               ⭐ GitHub
             </a>
