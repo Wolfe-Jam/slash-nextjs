@@ -172,11 +172,11 @@ export default function Chat() {
           </div>
           <div className="flex items-center gap-3">
             {hasKey ? (
-              <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="bg-[var(--slash-red)] text-white font-bold px-3 py-1 rounded-lg text-xs hover:opacity-90 transition-opacity">
+              <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg text-xs hover:border-[var(--fg)] transition-colors">
                 Top Up
               </a>
             ) : (
-              <a href="https://mcpaas.live/slash/setup" target="_blank" rel="noopener" className="bg-[var(--slash-red)] text-white font-bold px-3 py-1 rounded-lg text-xs hover:opacity-90 transition-opacity">
+              <a href="https://mcpaas.live/slash/setup" target="_blank" rel="noopener" className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg text-xs hover:border-[var(--fg)] transition-colors">
                 Get $5 Free Key
               </a>
             )}
