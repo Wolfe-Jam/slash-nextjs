@@ -2,6 +2,7 @@
 
 import { useChat } from '@ai-sdk/react';
 import { useState, useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const models = [
   { id: 'claude-opus', name: 'Claude Opus', provider: 'Anthropic' },
@@ -97,7 +98,13 @@ export default function Chat() {
                     : 'bg-[#111] border border-[var(--border)] text-[var(--fg)]'
                 }`}
               >
-                {msg.content}
+                {msg.role === 'assistant' ? (
+                  <div className="prose prose-invert prose-sm max-w-none [&_p]:mb-2 [&_ul]:mb-2 [&_li]:mb-1 [&_strong]:text-[var(--fg)] [&_h1]:text-lg [&_h2]:text-base [&_code]:text-[var(--slash-red)] [&_code]:bg-[#1a1a1a] [&_code]:px-1 [&_code]:rounded">
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  </div>
+                ) : (
+                  msg.content
+                )}
               </div>
               {msg.role === 'assistant' && (
                 <button
