@@ -158,8 +158,8 @@ export default function Chat() {
             )}
           </div>
           <div className="flex items-center gap-3">
-            <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="text-[var(--muted)] hover:text-[var(--fg)]">
-              Share on X
+            <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="bg-[#000] text-white font-bold px-3 py-1 rounded-lg text-xs hover:bg-[#222] transition-colors">
+              𝕏 Share
             </a>
             <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="bg-[#111] text-[var(--slash-green)] font-bold px-3 py-1 rounded-lg text-xs border border-[var(--slash-green)] hover:bg-[var(--slash-green)] hover:text-[#0a0a0a] transition-colors">
               ⚡ Dashboard
