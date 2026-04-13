@@ -20,6 +20,7 @@
     "@ai-sdk/react": "^1.2.12",
     "@ai-sdk/xai": "^1.2.3",
     "@opennextjs/cloudflare": "^1.19.1",
+    "@vercel/analytics": "^2.0.1",
     "ai": "^4.3.16",
     "next": "^15.3.2",
     "react": "^19.1.0",
