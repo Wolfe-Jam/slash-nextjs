@@ -58,7 +58,18 @@ export default function Chat() {
       </header>
 
       {/* Messages */}
-      <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 relative">
+        {messages.length > 1 && (
+          <button
+            onClick={() => {
+              const text = messages.map(m => `${m.role === 'user' ? 'You' : 'Slash'}: ${m.content}`).join('\n\n');
+              navigator.clipboard.writeText(text);
+            }}
+            className="sticky top-0 right-0 float-right bg-[#111] border border-[var(--border)] rounded-md px-2 py-1 text-[10px] text-[var(--muted)] hover:text-[var(--fg)] hover:border-[var(--fg)] transition-colors z-10"
+          >
+            Copy All
+          </button>
+        )}
         {messages.length === 0 && (
           <div className="pt-8 text-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" className="mx-auto mb-3 opacity-40">
@@ -149,17 +160,6 @@ export default function Chat() {
             <a href="https://github.com/Wolfe-Jam/slash-nextjs" target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
               ⭐ GitHub
             </a>
-            {messages.length > 1 && (
-              <button
-                onClick={() => {
-                  const text = messages.map(m => `${m.role === 'user' ? 'You' : 'Slash'}: ${m.content}`).join('\n\n');
-                  navigator.clipboard.writeText(text);
-                }}
-                className="hover:text-[var(--fg)] cursor-pointer"
-              >
-                Copy All
-              </button>
-            )}
           </div>
           <div className="flex items-center gap-3">
             <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="bg-[#000] text-white font-bold px-3 py-1 rounded-lg text-xs hover:bg-[#222] transition-colors">
