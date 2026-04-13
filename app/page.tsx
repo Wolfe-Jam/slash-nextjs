@@ -24,6 +24,12 @@ export default function Chat() {
     body: { model: selectedModel },
   });
 
+  const [hasKey, setHasKey] = useState(false);
+
+  useEffect(() => {
+    setHasKey(!!localStorage.getItem('slash_key'));
+  }, []);
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -165,9 +171,15 @@ export default function Chat() {
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="https://mcpaas.live/slash/setup" target="_blank" rel="noopener" className="bg-[var(--slash-red)] text-white font-bold px-3 py-1 rounded-lg text-xs hover:opacity-90 transition-opacity">
-              Get Key + $5 Free
-            </a>
+            {hasKey ? (
+              <a href="https://mcpaas.live/slash/dashboard" target="_blank" rel="noopener" className="bg-[var(--slash-red)] text-white font-bold px-3 py-1 rounded-lg text-xs hover:opacity-90 transition-opacity">
+                Top Up
+              </a>
+            ) : (
+              <a href="https://mcpaas.live/slash/setup" target="_blank" rel="noopener" className="bg-[var(--slash-red)] text-white font-bold px-3 py-1 rounded-lg text-xs hover:opacity-90 transition-opacity">
+                Get $5 Free Key
+              </a>
+            )}
             <a href="https://twitter.com/intent/tweet?text=Token-optimized%20AI%20chat%20for%20Next.js.%20Every%20call%20through%20the%20Gate.%20%E2%9A%A1%2Fslash&url=https%3A%2F%2Fslash-tokens.vercel.app" target="_blank" rel="noopener" className="bg-[#000] text-white font-bold px-3 py-1 rounded-lg text-xs hover:bg-[#222] transition-colors">
               𝕏 Share
             </a>
