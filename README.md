@@ -82,6 +82,12 @@ ANTHROPIC_API_KEY=sk-ant-...
 # SLASH_KEY=mcp_slash_...
 ```
 
+## Dashboard
+
+<p align="center">
+  <img src="public/dashboard.png" alt="Slash Dashboard — sunk cost prevented, live feed, model selection" width="600" />
+</p>
+
 ## Track Your Savings (Optional)
 
 - Get a free Slash key → [mcpaas.live/slash/setup](https://mcpaas.live/slash/setup)
