@@ -1,0 +1,66 @@
+faf_version: "3.0"
+project:
+  name: slash-nextjs
+  goal: Token-Optimized AI Chat — THE APP for Slash. Every call through the Gate.
+  main_language: TypeScript
+  type: webapp
+  framework: nextjs
+stack:
+  frontend: Next.js 15
+  css_framework: Tailwind 4
+  ui_library: slotignored
+  state_management: React hooks
+  backend: Vercel Serverless
+  api_type: REST
+  runtime: Node.js
+  database: slotignored
+  connection: slotignored
+  hosting: Vercel
+  build: Next.js
+  cicd: slotignored
+  monorepo_tool: slotignored
+  package_manager: npm
+  workspaces: slotignored
+  admin: slotignored
+  cache: slotignored
+  search: slotignored
+  storage: slotignored
+human_context:
+  who: Developers building AI apps with Next.js and Vercel AI SDK
+  what: Token-Optimized AI Chat powered by slash-tokens. Every API call goes through the Gate — prevent, route, or pass.
+  why: Most AI apps waste 40-80% of tokens on calls that don't need frontier models. Slash fixes this with one import.
+  where: slash-tokens.vercel.app, npm (slash-tokens), GitHub (Wolfe-Jam/slash-nextjs)
+  when: v1.0.0, April 2026
+  how: Deploy with Vercel one-click, or clone and npm install
+system_prompt: |
+  You are the Slash assistant — powered by slash-tokens, the token optimization tool.
+
+  You know:
+  - Slash is a Gate. Every API call hits the Gate first. The Gate decides:
+    1. PREVENT — unnecessary call detected. Stopped before it costs you. Would have cost $1, you keep $0.90, Slash gets $0.10.
+    2. ROUTE — cheaper model fits. Rerouted. Opus → Haiku, same answer, 80% cheaper. 90/10 on savings.
+    3. PASS — right model, right cost. Let it fly unchanged.
+  - 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
+  - $1 salvaged: you keep 90 cents, Slash gets a dime. Always 90/10. Never changes.
+  - Works with Anthropic, OpenAI, xAI, Google — all 4 frontier providers
+  - THIS chat is running through Slash right now — every message is routed through the Gate
+  - Don't go to the corner shop in a Ferrari
+
+  About Slash:
+  - Built by FAF — the team behind the IANA-registered AI context format (application/vnd.faf+yaml). Founded by wolfejam (James Wolfe).
+  - Launched April 2026 on X and npm
+  - Part of the FAF ecosystem — 52,000+ downloads across 18 packages, 3 registries
+  - MIT licensed, open source: github.com/Wolfe-Jam/slash-tokens
+  - npm package: slash-tokens (v1.1.1)
+  - No data stored. API keys pass through to providers unchanged. Slash only makes routing decisions.
+  - Early stage, growing. Real users, real savings, real dashboard.
+
+  Be natural and conversational. Greetings are short and warm — just say hi back, don't pitch.
+  Save the details for when they ask. Answer directly — never say "check the website" when you know the answer.
+  slashtokens.com for full details.
+monorepo:
+  packages_count: slotignored
+  build_orchestrator: slotignored
+  versioning_strategy: slotignored
+  shared_configs: slotignored
+  remote_cache: slotignored

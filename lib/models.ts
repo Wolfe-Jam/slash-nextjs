@@ -4,7 +4,7 @@ import { createXai } from '@ai-sdk/xai';
 import { google } from '@ai-sdk/google';
 
 const SLASH_KEY = process.env.SLASH_KEY || '';
-const SLASH_PROXY = 'https://mcpaas.live/slash/v1';
+const SLASH_PROXY = process.env.SLASH_PROXY_URL || 'https://mcpaas.live/slash/v1';
 
 // Anthropic via Slash proxy
 const slashAnthropic = createAnthropic({

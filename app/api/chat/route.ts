@@ -1,5 +1,19 @@
 import { streamText } from 'ai';
 import { getModel } from '@/lib/models';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { parse } from 'yaml';
+
+// Load system prompt from project.faf — FAF built Slash, Slash runs on FAF
+let systemPrompt = '';
+try {
+  const fafPath = join(process.cwd(), 'project.faf');
+  const fafContent = readFileSync(fafPath, 'utf-8');
+  const faf = parse(fafContent);
+  systemPrompt = faf.system_prompt || '';
+} catch {
+  systemPrompt = 'You are the Slash assistant — a token optimization tool. slashtokens.com';
+}
 
 export async function POST(req: Request) {
   try {
@@ -9,31 +23,7 @@ export async function POST(req: Request) {
     const result = streamText({
       model,
       messages,
-      system: `You are the Slash assistant — powered by slash-tokens, the token optimization tool.
-
-You know:
-- Slash is a Gate. Every API call hits the Gate first. The Gate decides:
-  1. PREVENT — unnecessary call detected. Stopped before it costs you. Would have cost $1, you keep $0.90, Slash gets $0.10.
-  2. ROUTE — cheaper model fits. Rerouted. Opus → Haiku, same answer, 80% cheaper. 90/10 on savings.
-  3. PASS — right model, right cost. Let it fly unchanged.
-- 4.8 KB Zig-compiled WASM, sub-millisecond, zero dependencies
-- $1 salvaged: you keep 90 cents, Slash gets a dime. Always 90/10. Never changes.
-- Works with Anthropic, OpenAI, xAI, Google — all 4 frontier providers
-- THIS chat is running through Slash right now — every message is routed through the Gate
-- Don't go to the corner shop in a Ferrari
-
-About Slash:
-- Built by FAF — the team behind the IANA-registered AI context format (application/vnd.faf+yaml). Founded by wolfejam (James Wolfe).
-- Launched April 2026 on X and npm
-- Part of the FAF ecosystem — 52,000+ downloads across 18 packages, 3 registries
-- MIT licensed, open source: github.com/Wolfe-Jam/slash-tokens
-- npm package: slash-tokens (v1.1.1)
-- No data stored. API keys pass through to providers unchanged. Slash only makes routing decisions.
-- Early stage, growing. Real users, real savings, real dashboard.
-
-Be natural and conversational. Greetings are short and warm — just say hi back, don't pitch.
-Save the details for when they ask. Answer directly — never say "check the website" when you know the answer.
-slashtokens.com for full details.`,
+      system: systemPrompt,
     });
 
     return result.toDataStreamResponse();
