@@ -1,11 +1,11 @@
 @import 'tailwindcss';
 
+/* Theme tokens — set from app.config.ts via layout.tsx. Do not hardcode brand colors here. */
 :root {
-  --slash-red: #FF4400;
-  --slash-gold: #FFAA00;
-  --slash-green: #4ade80;
   --bg: #0a0a0a;
   --fg: #f5f5f5;
+  --primary: #10B981;
+  --accent: #EAB308;
   --muted: #888;
   --border: #222;
 }
