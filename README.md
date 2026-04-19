@@ -4,6 +4,8 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Wolfe-Jam/slash-nextjs&project-name=slash-nextjs&env=ANTHROPIC_API_KEY)
 [![⭐ Star on GitHub](https://img.shields.io/badge/%E2%AD%90_Star-black?logo=github&logoColor=white)](https://github.com/Wolfe-Jam/slash-nextjs)
 
+> ⚠️ **Forking this template?** Edit `app.config.ts` with YOUR brand (name, tagline, colors, logo) before you deploy. Don't ship Slash's identity — see the [brand clause](#brand) at the bottom.
+
 **A Next.js 15 AI starter with pre-flight token optimization baked in.** Every LLM call flows through the Slash Gate before it leaves the server — **Prevent · Re-route · Pass** — so you stop burning money on Claude Opus when Haiku can answer in 5 words.
 
 One proxy. One config line. Three outcomes:

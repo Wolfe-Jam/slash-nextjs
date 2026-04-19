@@ -1,7 +1,9 @@
 /**
  * App configuration for this template.
  *
- * Change these to your brand before deploying.
+ * ⚠️  This is the SLASH-BRANDED version (what deploys to slash-tokens.vercel.app).
+ * If you forked this template, change these to your brand BEFORE you deploy.
+ * Don't ship Slash's identity — see the brand clause at the bottom of README.md.
  *
  * Every field is required. If you don't have a logo, leave it empty —
  * the splash will render `brand.name` as a wordmark.
@@ -9,14 +11,14 @@
 
 export const appConfig = {
   brand: {
-    name: 'Token Saver',
-    tagline: 'Every call optimized.',
+    name: '/slash',
+    tagline: 'Token-Optimized AI Chat',
     /** Optional. Path under /public — e.g. '/brand/logo.svg'. Empty = use name as wordmark. */
     logo: '',
     /** Primary accent — used for buttons, highlights, focus states. */
-    primary: '#10B981', // emerald green
+    primary: '#FF4400', // Slash red
     /** Secondary accent — used for cost savings, positive signals. */
-    accent: '#EAB308',  // amber gold
+    accent: '#FFAA00',  // Slash gold
     bg: '#0a0a0a',
     fg: '#f5f5f5',
     /** Border color for inputs, dividers. Derived from bg if not set. */
