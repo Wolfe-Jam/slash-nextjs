@@ -2,12 +2,15 @@
 
 import { appConfig } from '@/app.config';
 
+const slashBrand = process.env.NEXT_PUBLIC_SLASH_BRAND === '1';
+
 /**
  * Renders the brand mark.
  *
- * If `appConfig.brand.logo` is set, renders that image.
- * Otherwise renders a gold coin — a generic, brand-neutral default
- * that suits any token-savings app.
+ * Priority order:
+ * 1. `appConfig.brand.logo` (image path) — forker's own logo
+ * 2. Slash lightning polygon — only when NEXT_PUBLIC_SLASH_BRAND=1 (Slash's deploy)
+ * 3. Gold coin — generic placeholder for the default Token Saver brand
  */
 export default function BrandMark({ size = 24 }: { size?: number }) {
   if (appConfig.brand.logo) {
@@ -22,7 +25,22 @@ export default function BrandMark({ size = 24 }: { size?: number }) {
     );
   }
 
-  // Default: gold coin SVG. Replace by setting config.brand.logo.
+  // Slash brand — lightning polygon mark
+  if (slashBrand) {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        width={size}
+        height={size}
+        aria-label={appConfig.brand.name}
+      >
+        <polygon points="60,0 20,55 48,55 38,100 80,42 52,42" fill={appConfig.brand.accent} />
+      </svg>
+    );
+  }
+
+  // Default placeholder — gold coin.
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
