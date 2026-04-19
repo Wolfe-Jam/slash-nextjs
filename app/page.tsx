@@ -148,26 +148,6 @@ export default function Chat() {
                 </div>
               </div>
               <p className="text-[var(--muted)] text-xs mt-4 opacity-50">4.8 KB WASM · sub-ms · zero deps</p>
-              {appConfig.repoUrl && (() => {
-                const m = appConfig.repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
-                if (!m) return null;
-                const [, owner, repo] = m;
-                return (
-                  <div className="flex justify-center mt-5">
-                    {/* Official GitHub widget: for logged-in users, click stars via iframe API with NO navigation. Non-logged-in users get sent to GitHub login in a new tab. */}
-                    <a
-                      className="github-button"
-                      href={appConfig.repoUrl}
-                      data-size="large"
-                      data-show-count="false"
-                      data-target="_blank"
-                      aria-label={`Star ${owner}/${repo} on GitHub`}
-                    >
-                      Star
-                    </a>
-                  </div>
-                );
-              })()}
             </div>
           )}
 
@@ -241,11 +221,23 @@ export default function Chat() {
           </div>
           <div className="flex items-center justify-between mt-2 text-xs">
             <div className="flex items-center gap-3 text-[var(--muted)]">
-              {appConfig.repoUrl && (
-                <a href={appConfig.repoUrl} target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
-                  ⭐ GitHub
-                </a>
-              )}
+              {appConfig.repoUrl && (() => {
+                const m = appConfig.repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+                if (!m) return null;
+                const [, owner, repo] = m;
+                return (
+                  <a
+                    className="github-button"
+                    href={appConfig.repoUrl}
+                    data-size="small"
+                    data-show-count="false"
+                    data-target="_blank"
+                    aria-label={`Star ${owner}/${repo} on GitHub`}
+                  >
+                    Star
+                  </a>
+                );
+              })()}
               {appConfig.dashboard.enabled && (
                 <a href={appConfig.dashboard.setupUrl} target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
                   🔑 Your Key
