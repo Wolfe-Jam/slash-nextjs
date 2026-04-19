@@ -148,6 +148,23 @@ export default function Chat() {
                 </div>
               </div>
               <p className="text-[var(--muted)] text-xs mt-4 opacity-50">4.8 KB WASM · sub-ms · zero deps</p>
+              {appConfig.repoUrl && (() => {
+                const m = appConfig.repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+                if (!m) return null;
+                const [, owner, repo] = m;
+                return (
+                  <div className="flex justify-center mt-5">
+                    <iframe
+                      src={`https://ghbtns.com/github-btn.html?user=${owner}&repo=${repo}&type=star&count=true&size=large`}
+                      frameBorder="0"
+                      scrolling="0"
+                      width="170"
+                      height="30"
+                      title={`Star ${owner}/${repo} on GitHub`}
+                    />
+                  </div>
+                );
+              })()}
             </div>
           )}
 
