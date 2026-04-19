@@ -154,14 +154,17 @@ export default function Chat() {
                 const [, owner, repo] = m;
                 return (
                   <div className="flex justify-center mt-5">
-                    <iframe
-                      src={`https://ghbtns.com/github-btn.html?user=${owner}&repo=${repo}&type=star&count=false&size=large`}
-                      frameBorder="0"
-                      scrolling="0"
-                      width="170"
-                      height="30"
-                      title={`Star ${owner}/${repo} on GitHub`}
-                    />
+                    {/* Official GitHub widget: for logged-in users, click stars via iframe API with NO navigation. Non-logged-in users get sent to GitHub login in a new tab. */}
+                    <a
+                      className="github-button"
+                      href={appConfig.repoUrl}
+                      data-size="large"
+                      data-show-count="false"
+                      data-target="_blank"
+                      aria-label={`Star ${owner}/${repo} on GitHub`}
+                    >
+                      Star
+                    </a>
                   </div>
                 );
               })()}

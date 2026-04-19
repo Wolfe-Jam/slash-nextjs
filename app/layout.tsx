@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import { appConfig } from '../app.config';
 import './globals.css';
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased">
         {children}
         <Analytics />
+        <Script src="https://buttons.github.io/buttons.js" strategy="afterInteractive" async defer />
       </body>
     </html>
   );
