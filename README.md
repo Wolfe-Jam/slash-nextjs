@@ -107,13 +107,11 @@ The only required env var is one provider key. Everything else has a default in 
 - **Slash SDK:** [slash-tokens](https://www.npmjs.com/package/slash-tokens) on npm · [GitHub](https://github.com/Wolfe-Jam/slash-tokens)
 - **Docs:** [slashtokens.com](https://slashtokens.com) · [FAQ](https://slashtokens.com/faq)
 
-## Brand
-
-By using the SDK, you agree not to use the ⚡slash-tokens brand or colors for your app without written consent. Violators will get a takedown request issued immediately.
-
 ## License
 
-MIT — Built for token-conscious Next.js developers.
+**Code: MIT.** Fork it, ship it, change it, sell it.
+
+**Brand: reserved.** The Slash name, ⚡ mark, and red/gold colors stay with the project. When you deploy a fork, change the name, tagline, and colors in `app.config.ts` first — the default placeholder ("Token Saver", green + gold) is there so you ship safely out of the box.
 
 ---
 
