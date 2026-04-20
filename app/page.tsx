@@ -294,6 +294,9 @@ export default function Chat() {
               </div>
             )}
           </div>
+          <div className="mt-2 text-[10px] text-[var(--muted)] opacity-60 text-center">
+            Step one is Slash. <a href="https://faf.one" target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">FAF's persistent context</a> is the next multiplier.
+          </div>
         </form>
       </div>
     </>

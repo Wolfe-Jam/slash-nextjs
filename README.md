@@ -114,3 +114,9 @@ By using the SDK, you agree not to use the ⚡slash-tokens brand or colors for y
 ## License
 
 MIT — Built for token-conscious Next.js developers.
+
+---
+
+**Slash is step one. FAF's persistent context is the next multiplier →** [faf.one](https://faf.one)
+
+From the team behind the [IANA-registered AI context format](https://www.iana.org/assignments/media-types/application/vnd.faf+yaml).
