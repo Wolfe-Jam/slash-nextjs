@@ -109,7 +109,7 @@ The only required env var is one provider key. Everything else has a default in 
 
 ## License
 
-**Code: MIT.** Fork it, ship it, change it, sell it.
+**Code: MIT.** Fork it, ship it, change it, show it, share it, sell it.
 
 **Brand: reserved.** The Slash name, ⚡ mark, and red/gold colors stay with the project. When you deploy a fork, change the name, tagline, and colors in `app.config.ts` first — the default placeholder ("Token Saver", green + gold) is there so you ship safely out of the box.
 
