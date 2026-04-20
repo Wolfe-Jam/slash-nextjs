@@ -141,9 +141,19 @@ export default function Chat() {
 
           {messages.length === 0 && (
             <div className="pt-8 text-center">
-              <div className="mx-auto mb-3 opacity-40 flex justify-center">
-                <BrandMark size={40} />
+              <div className="mx-auto mb-3 flex justify-center">
+                <BrandMark size={64} />
               </div>
+              <p className="text-2xl font-black mb-4 tracking-tight">
+                {brandName.startsWith('/') ? (
+                  <>
+                    {brandName[0]}
+                    <span style={{ color: 'var(--primary)' }}>{brandName.slice(1)}</span>
+                  </>
+                ) : (
+                  brandName
+                )}
+              </p>
               <p className="text-[var(--fg)] text-lg font-bold mb-1">{appConfig.copy.heroTitle}</p>
               <p className="text-[var(--muted)] text-sm mb-4">{appConfig.copy.heroSubtitle}</p>
               <div className="flex flex-col gap-2 max-w-xs mx-auto text-left text-sm">

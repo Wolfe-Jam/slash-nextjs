@@ -51,7 +51,14 @@ export default function Splash() {
           letterSpacing: '-0.02em',
         }}
       >
-        {appConfig.brand.name}
+        {appConfig.brand.name.startsWith('/') ? (
+          <>
+            {appConfig.brand.name[0]}
+            <span style={{ color: appConfig.brand.primary }}>{appConfig.brand.name.slice(1)}</span>
+          </>
+        ) : (
+          appConfig.brand.name
+        )}
       </div>
       <style>{`
         @keyframes splashFade {
