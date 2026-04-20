@@ -203,7 +203,7 @@ export default function Chat() {
                     <div
                       className="mt-1 inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full"
                       style={{ color: appConfig.brand.accent, background: 'rgba(234,179,8,0.08)' }}
-                      title={`Slash re-routed ${route.from} → ${route.to}`}
+                      title={`Re-routed ${route.from} → ${route.to} · saved $${route.savedUsd.toFixed(2)}`}
                     >
                       ⚡ routed {shortModel(route.from)} → {shortModel(route.to)} · saved ${route.savedUsd.toFixed(2)}
                     </div>
