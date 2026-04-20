@@ -27,7 +27,7 @@
     "next": "^15.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "slash-tokens": "^1.4.0"
+    "slash-tokens": "^1.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1",
