@@ -77,10 +77,29 @@ export default function Chat() {
         <header className="flex items-center justify-between p-4 border-b border-[var(--border)]">
           <div className="flex items-center gap-2">
             <BrandMark size={24} />
-            <span className="font-bold text-lg">{brandName}</span>
+            <span className="font-bold text-lg">
+              {brandName.startsWith('/') ? (
+                <>
+                  {brandName[0]}
+                  <span style={{ color: 'var(--primary)' }}>{brandName.slice(1)}</span>
+                </>
+              ) : (
+                brandName
+              )}
+            </span>
             <span className="hidden sm:inline text-xs text-[var(--muted)]">{appConfig.brand.tagline}</span>
           </div>
           <div className="flex items-center gap-2">
+            {appConfig.faqUrl && (
+              <a
+                href={appConfig.faqUrl}
+                target="_blank"
+                rel="noopener"
+                className="w-6 h-6 flex items-center justify-center rounded-full border border-[var(--muted)] text-[var(--muted)] text-xs hover:bg-[var(--fg)] hover:text-[#0a0a0a] hover:border-[var(--fg)] active:bg-[var(--primary)] active:border-[var(--primary)] active:text-white transition-colors"
+              >
+                ?
+              </a>
+            )}
             {sessionSaved > 0 && (
               <span
                 className="hidden sm:inline text-xs font-semibold px-2 py-1 rounded-md"
@@ -122,11 +141,11 @@ export default function Chat() {
 
           {messages.length === 0 && (
             <div className="pt-8 text-center">
-              <div className="mx-auto mb-3 opacity-60">
+              <div className="mx-auto mb-3 opacity-40 flex justify-center">
                 <BrandMark size={40} />
               </div>
-              <p className="text-[var(--fg)] text-lg font-bold mb-1">Every call optimized.</p>
-              <p className="text-[var(--muted)] text-sm mb-4">Evaluate, route, and save — automatically.</p>
+              <p className="text-[var(--fg)] text-lg font-bold mb-1">{appConfig.copy.heroTitle}</p>
+              <p className="text-[var(--muted)] text-sm mb-4">{appConfig.copy.heroSubtitle}</p>
               <div className="flex flex-col gap-2 max-w-xs mx-auto text-left text-sm">
                 <div className="flex items-center gap-2 text-[var(--muted)]">
                   <span style={{ color: appConfig.brand.primary }}>✓</span>

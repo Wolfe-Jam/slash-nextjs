@@ -40,6 +40,17 @@ const brandSlash = {
 export const appConfig = {
   brand: slashBrand ? brandSlash : brandDefault,
 
+  /** Copy variants — some lines read differently per brand. */
+  copy: {
+    heroTitle: 'Every call optimized.',
+    heroSubtitle: slashBrand
+      ? 'Slash evaluates, routes, and saves — automatically.'
+      : 'Evaluate, route, and save — automatically.',
+  },
+
+  /** Optional FAQ URL — renders a small "?" in the header when set. Empty = hidden. */
+  faqUrl: slashBrand ? 'https://slashtokens.com/faq' : '',
+
   splash: {
     enabled: true,
     duration: 2200,
