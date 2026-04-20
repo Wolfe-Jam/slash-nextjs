@@ -1,5 +1,6 @@
 import { createDataStreamResponse, streamText } from 'ai';
 import { getModel } from '@/lib/models';
+import { toSdkModelId } from '@/lib/ui-models';
 import { preflightRoute } from 'slash-tokens';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -24,13 +25,6 @@ try {
   systemPrompt = 'You are a helpful AI assistant.';
 }
 
-function toPreflightModel(id: string): string {
-  // Our UI uses short IDs (claude-opus). slash-tokens MODELS keys use the
-  // same short names, but we preview Opus 4.7 pricing for the "claude-opus" default.
-  if (id === 'claude-opus') return 'claude-opus-4.7';
-  return id;
-}
-
 export async function POST(req: Request) {
   const { messages, model: modelId } = await req.json();
   const lastUserMsg =
@@ -51,7 +45,7 @@ export async function POST(req: Request) {
           try {
             const assistantId = response.messages?.[0]?.id;
             if (!assistantId || !lastUserMsg || !modelId) return;
-            const route = preflightRoute(lastUserMsg, toPreflightModel(modelId));
+            const route = preflightRoute(lastUserMsg, toSdkModelId(modelId));
             if (route && route.salvaged >= PILL_MIN_USD) {
               writer.writeMessageAnnotation({
                 type: 'route',

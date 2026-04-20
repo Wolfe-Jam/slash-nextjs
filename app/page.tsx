@@ -5,19 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { appConfig } from '@/app.config';
 import Splash from '@/components/Splash';
 import BrandMark from '@/components/BrandMark';
-
-const models = [
-  { id: 'claude-opus', name: 'Claude Opus 4.7', provider: 'Anthropic' },
-  { id: 'claude-sonnet', name: 'Claude Sonnet 4.6', provider: 'Anthropic' },
-  { id: 'claude-haiku', name: 'Claude Haiku 4.5', provider: 'Anthropic' },
-  { id: 'gpt-5.4', name: 'GPT-5.4', provider: 'OpenAI' },
-  { id: 'gpt-5.4-mini', name: 'GPT-5.4 Mini', provider: 'OpenAI' },
-  { id: 'gpt-5.4-nano', name: 'GPT-5.4 Nano', provider: 'OpenAI' },
-  { id: 'grok-4.20', name: 'Grok-4.20', provider: 'xAI' },
-  { id: 'grok-4-1-fast', name: 'Grok-4.1 Fast', provider: 'xAI' },
-  { id: 'gemini-3.1-pro', name: 'Gemini 3.1 Pro', provider: 'Google' },
-  { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash', provider: 'Google' },
-];
+import { UI_MODELS } from '@/lib/ui-models';
 
 type RouteInfo = {
   messageId: string;
@@ -114,7 +102,7 @@ export default function Chat() {
               onChange={(e) => setSelectedModel(e.target.value)}
               className="bg-[#111] border border-[var(--border)] rounded-lg px-3 py-1.5 text-sm text-[var(--fg)] outline-none focus:border-[var(--primary)]"
             >
-              {models.map((m) => (
+              {UI_MODELS.map((m) => (
                 <option key={m.id} value={m.id}>
                   {m.name}
                 </option>

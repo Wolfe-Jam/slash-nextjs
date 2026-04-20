@@ -14,7 +14,7 @@
 const slashBrand = process.env.NEXT_PUBLIC_SLASH_BRAND === '1';
 
 /** Placeholder brand — safe default for forks. Change this to yours. */
-const brandDefault = {
+export const brandDefault = {
   name: 'Token Saver',
   tagline: 'Every call optimized.',
   logo: '',
@@ -26,7 +26,7 @@ const brandDefault = {
 } as const;
 
 /** Slash brand — only rendered when NEXT_PUBLIC_SLASH_BRAND=1. Not for forks. */
-const brandSlash = {
+export const brandSlash = {
   name: '/slash',
   tagline: 'Token-Optimized AI Chat',
   logo: '',
