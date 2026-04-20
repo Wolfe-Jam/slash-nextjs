@@ -1,9 +1,17 @@
 import { createDataStreamResponse, streamText } from 'ai';
 import { getModel } from '@/lib/models';
-import { preflight } from 'slash-tokens';
+import { preflightRoute } from 'slash-tokens';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { parse } from 'yaml';
+
+/**
+ * Minimum savings threshold to surface a routing pill.
+ * Savings below $0.005 display as "$0.00" which reads broken.
+ * We still *track* these saves in the session counter — they just don't
+ * earn a standalone pill.
+ */
+const PILL_MIN_USD = 0.005;
 
 // System prompt loaded from project.faf once at module init.
 let systemPrompt = '';
@@ -37,25 +45,24 @@ export async function POST(req: Request) {
         messages,
         system: systemPrompt,
         onFinish: ({ response }) => {
-          // Predict the Slash Gate decision using slash-tokens' own routing logic.
-          // The SDK and the live proxy share the same pricing table, so this
-          // reflects what the proxy would do for a given prompt + model.
+          // preflightRoute (slash-tokens v1.4.0+) matches the mcpaas-cf proxy's
+          // findCheapestRoute exactly — same-provider only. This is the actual
+          // routing decision, not the cross-provider analysis preflight() returns.
           try {
             const assistantId = response.messages?.[0]?.id;
             if (!assistantId || !lastUserMsg || !modelId) return;
-            const pre = preflight(lastUserMsg, toPreflightModel(modelId));
-            const cheaper = pre.options?.[0];
-            if (cheaper && cheaper.model !== toPreflightModel(modelId) && cheaper.salvaged > 0) {
+            const route = preflightRoute(lastUserMsg, toPreflightModel(modelId));
+            if (route && route.salvaged >= PILL_MIN_USD) {
               writer.writeMessageAnnotation({
                 type: 'route',
                 messageId: assistantId,
                 from: modelId,
-                to: cheaper.model,
-                savedUsd: cheaper.salvaged,
+                to: route.model,
+                savedUsd: route.salvaged,
               });
             }
           } catch {
-            // Preflight failures shouldn't break chat response.
+            // Routing prediction failures shouldn't break chat response.
           }
         },
       });
