@@ -297,6 +297,9 @@ export default function Chat() {
           <div className="mt-2 text-[10px] text-[var(--muted)] opacity-60 text-center">
             Step one is Slash. <a href="https://faf.one" target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">FAF's persistent context</a> is the next multiplier.
           </div>
+          <div className="mt-1 text-[10px] text-[var(--muted)] opacity-50 text-center">
+            Latest: <a href={`${appConfig.repoUrl}/releases/tag/v${process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}`} target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">v{process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}</a> · April 20, 2026 · <a href={`${appConfig.repoUrl}/releases`} target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">Releases</a>
+          </div>
         </form>
       </div>
     </>

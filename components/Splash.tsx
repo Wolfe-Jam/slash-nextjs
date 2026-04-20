@@ -4,10 +4,16 @@ import { useEffect, useState } from 'react';
 import { appConfig } from '@/app.config';
 import BrandMark from '@/components/BrandMark';
 
+const slashBrand = process.env.NEXT_PUBLIC_SLASH_BRAND === '1';
+
 /**
- * Intro splash. Matches the slashtokens.com site pattern — dark full-screen
- * overlay, fade + zoom the brand mark, auto-remove after `splash.duration` ms.
- * Always shows on page load. No opt-out.
+ * Intro splash.
+ *
+ * On the Slash brand deploy (NEXT_PUBLIC_SLASH_BRAND=1) we show the Evaluator
+ * hero image — same pattern slashtokens.com uses. On forks, we show a
+ * neutral wordmark splash so the brand doesn't leak.
+ *
+ * Duration: 2.2s either way. Click to dismiss early.
  */
 
 export default function Splash() {
@@ -22,6 +28,52 @@ export default function Splash() {
 
   if (!visible) return null;
 
+  // Slash brand — full-image splash, matches slashtokens.com exactly
+  if (slashBrand) {
+    return (
+      <div
+        onClick={() => setVisible(false)}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          background: '#0a0a0a',
+          zIndex: 99999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          animation: `evalFade ${duration}ms ease forwards`,
+        }}
+        aria-hidden="true"
+      >
+        <img
+          src="/evaluator-splash.jpg"
+          alt="The Evaluator"
+          style={{
+            maxWidth: '80%',
+            maxHeight: '70vh',
+            borderRadius: '12px',
+            animation: `evalZoom ${duration}ms ease forwards`,
+          }}
+        />
+        <style>{`
+          @keyframes evalZoom {
+            0%   { transform: scale(0.3);  opacity: 0; }
+            30%  { transform: scale(1.05); opacity: 1; }
+            50%  { transform: scale(1);    opacity: 1; }
+            100% { transform: scale(1);    opacity: 0; }
+          }
+          @keyframes evalFade {
+            0%   { opacity: 1; }
+            70%  { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  // Default — neutral wordmark splash for forks
   return (
     <div
       onClick={() => setVisible(false)}
