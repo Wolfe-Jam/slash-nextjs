@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "slash-tokens.vercel.app" }],
+      "destination": "https://slashtokens.com",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "slash-tokens.vercel.app" }],
+      "destination": "https://slashtokens.com/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -11,6 +11,24 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_APP_VERSION: pkg.version,
   },
+  // slash-tokens.vercel.app is a stale brand alias. Canonical cash door is slashtokens.com.
+  // Host-gated so slash-nextjs-*.vercel.app (the chat demo) stays up.
+  async redirects() {
+    return [
+      {
+        source: '/',
+        has: [{ type: 'host', value: 'slash-tokens.vercel.app' }],
+        destination: 'https://slashtokens.com',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'slash-tokens.vercel.app' }],
+        destination: 'https://slashtokens.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
