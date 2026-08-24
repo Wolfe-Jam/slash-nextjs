@@ -279,7 +279,7 @@ export default function Chat() {
                     rel="noopener"
                     className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg text-xs hover:border-[var(--fg)] transition-colors"
                   >
-                    Get $5 Free Key
+                    Get a key
                   </a>
                 )}
                 <a

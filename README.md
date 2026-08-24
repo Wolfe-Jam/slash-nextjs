@@ -26,8 +26,8 @@ Most Next.js AI apps default to a frontier model for everything. A simple query 
 
 **Real numbers, not projections.** One user, one day, one dashboard:
 
-> **$477 saved · $47 earned · $430 kept · 3,451 transactions**
-> Same day. [10:1 aligned.](https://faf.one/blog/slash-tokens-10-1)
+> **$477 saved · 3,451 transactions**
+> Same day. Slash 10% waived. [10:1 aligned.](https://faf.one/blog/slash-tokens-10-1)
 
 Don't go to the corner shop in a Ferrari.
 
@@ -77,7 +77,7 @@ Set one of `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY`, or `GOOGLE_GENE
 
 Track your re-routing + prevention across all your apps at [mcpaas.live/slash/dashboard](https://mcpaas.live/slash/dashboard).
 
-Free key ($5 credit) at [mcpaas.live/slash/setup](https://mcpaas.live/slash/setup). Drop it into `.env.local`:
+Get a key ($20 on the house) at [mcpaas.live/slash/setup](https://mcpaas.live/slash/setup). Drop it into `.env.local`:
 
 ```
 SLASH_KEY=mcp_slash_...
