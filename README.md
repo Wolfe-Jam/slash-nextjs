@@ -4,7 +4,7 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Wolfe-Jam/slash-nextjs&project-name=slash-nextjs&repository-name=slash-nextjs&env=ANTHROPIC_API_KEY&envDescription=Any+one+provider+key+works+-+Anthropic,+OpenAI,+xAI+or+Google.+See+.env.example+for+all+options.&envLink=https://github.com/Wolfe-Jam/slash-nextjs/blob/main/.env.example)
 [![⭐ Star on GitHub](https://img.shields.io/badge/%E2%AD%90_Star-black?logo=github&logoColor=white)](https://github.com/Wolfe-Jam/slash-nextjs)
 
-**See it work:** [slash-tokens.vercel.app](https://slash-tokens.vercel.app) — a live chat. Every LLM call through the Slash gate before it leaves the server. Then `bunx slash-tokens`, [get a key](https://mcpaas.live/slash/setup) ($20 on the house), or [Team — $39 for the data](https://slashtokens.com).
+**See it work:** [slash-nextjs-wofejams-projects.vercel.app](https://slash-nextjs-wofejams-projects.vercel.app) — a live chat. Every LLM call through the Slash gate before it leaves the server. Then `bunx slash-tokens`, [get a key](https://mcpaas.live/slash/setup) ($20 on the house), or [Team — $39 for the data](https://slashtokens.com).
 
 This repo is the demo behind that chat, not a starter to fork. If you do clone it, the deploy shows a generic green+gold placeholder ("Token Saver"). Slash's identity is gated — see [License](#license).
 
@@ -103,7 +103,7 @@ The only required env var is one provider key. Everything else has a default in 
 
 ## Links
 
-- **Live demo:** [slash-tokens.vercel.app](https://slash-tokens.vercel.app)
+- **Live demo:** [slash-nextjs-wofejams-projects.vercel.app](https://slash-nextjs-wofejams-projects.vercel.app)
 - **Slash SDK:** [slash-tokens](https://www.npmjs.com/package/slash-tokens) on npm · [GitHub](https://github.com/Wolfe-Jam/slash-tokens)
 - **Docs:** [slashtokens.com](https://slashtokens.com) · [FAQ](https://slashtokens.com/faq)
 
