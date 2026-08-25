@@ -63,6 +63,17 @@ export const appConfig = {
     dashboardUrl: 'https://mcpaas.live/slash/dashboard',
   },
 
+  /** Live Slash demo only. Forks stay generic — no Team / $20 funnel. */
+  funnel: slashBrand
+    ? {
+        tryHref: 'https://slashtokens.com#try',
+        tryLabel: 'bunx slash-tokens',
+        setupUrl: 'https://mcpaas.live/slash/setup',
+        teamUrl: 'https://slashtokens.com',
+        teamLabel: 'Team — $39 for the data',
+      }
+    : null,
+
   repoUrl: 'https://github.com/Wolfe-Jam/slash-nextjs',
 } as const;
 

@@ -4,9 +4,9 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Wolfe-Jam/slash-nextjs&project-name=slash-nextjs&repository-name=slash-nextjs&env=ANTHROPIC_API_KEY&envDescription=Any+one+provider+key+works+-+Anthropic,+OpenAI,+xAI+or+Google.+See+.env.example+for+all+options.&envLink=https://github.com/Wolfe-Jam/slash-nextjs/blob/main/.env.example)
 [![⭐ Star on GitHub](https://img.shields.io/badge/%E2%AD%90_Star-black?logo=github&logoColor=white)](https://github.com/Wolfe-Jam/slash-nextjs)
 
-> 💡 **Forking this template?** Your deploy will show the generic green+gold placeholder ("Token Saver") by default — safe out of the box. Edit `app.config.ts` → `brandDefault` with your own brand (name, tagline, colors, logo), then deploy. Slash's identity is gated behind an env var only Slash controls — see [License](#license) for the full brand / code split.
+**See it work:** [slash-tokens.vercel.app](https://slash-tokens.vercel.app) — a live chat. Every LLM call through the Slash gate before it leaves the server. Then `bunx slash-tokens`, [get a key](https://mcpaas.live/slash/setup) ($20 on the house), or [Team — $39 for the data](https://slashtokens.com).
 
-**A Next.js 15 AI starter with pre-flight token optimization baked in.** Every LLM call flows through the Slash Gate before it leaves the server — **Prevent · Re-route · Pass** — so you stop burning money on Claude Opus when Haiku can answer in 5 words.
+This repo is the demo behind that chat, not a starter to fork. If you do clone it, the deploy shows a generic green+gold placeholder ("Token Saver"). Slash's identity is gated — see [License](#license).
 
 One proxy. One config line. Three outcomes:
 

@@ -12,7 +12,7 @@
  * and the contract each one implements.
  */
 import { describe, it, expect } from 'vitest';
-import { brandDefault, brandSlash } from '@/app.config';
+import { appConfig, brandDefault, brandSlash } from '@/app.config';
 
 describe('brand-gate', () => {
   it('default brand is Token Saver (safe placeholder for forks)', () => {
@@ -29,6 +29,10 @@ describe('brand-gate', () => {
   it('default brand uses no Slash-protected colors', () => {
     expect(brandDefault.primary).not.toBe('#FF4400'); // Slash red
     expect(brandDefault.accent).not.toBe('#FFAA00');  // Slash gold
+  });
+
+  it('funnel stays off on the default (fork) brand', () => {
+    expect(appConfig.funnel).toBeNull();
   });
 
   it('both brands share a consistent shape', () => {

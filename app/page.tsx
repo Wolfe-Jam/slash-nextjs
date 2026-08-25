@@ -27,12 +27,6 @@ export default function Chat() {
     body: { model: selectedModel },
   });
 
-  const [hasKey, setHasKey] = useState(false);
-
-  useEffect(() => {
-    setHasKey(!!localStorage.getItem('slash_key'));
-  }, []);
-
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -236,52 +230,61 @@ export default function Chat() {
               Send
             </button>
           </div>
-          <div className="flex items-center justify-between mt-2 text-xs">
-            <div className="flex items-center gap-3 text-[var(--muted)]">
-              {appConfig.repoUrl && (() => {
-                const m = appConfig.repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
-                if (!m) return null;
-                const [, owner, repo] = m;
-                return (
-                  <a
-                    className="github-button"
-                    href={appConfig.repoUrl}
-                    data-size="small"
-                    data-show-count="false"
-                    data-target="_blank"
-                    aria-label={`Star ${owner}/${repo} on GitHub`}
-                  >
-                    Star
-                  </a>
-                );
-              })()}
-              {appConfig.dashboard.enabled && (
-                <a href={appConfig.dashboard.setupUrl} target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
-                  🔑 Your Key
-                </a>
-              )}
+          {appConfig.funnel ? (
+            <div className="flex items-center justify-center gap-2 mt-3 text-xs flex-wrap">
+              <a
+                href={appConfig.funnel.tryHref}
+                target="_blank"
+                rel="noopener"
+                className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg hover:border-[var(--fg)] transition-colors"
+              >
+                {appConfig.funnel.tryLabel}
+              </a>
+              <a
+                href={appConfig.funnel.setupUrl}
+                target="_blank"
+                rel="noopener"
+                className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg hover:border-[var(--fg)] transition-colors"
+              >
+                Get a key
+              </a>
+              <a
+                href={appConfig.funnel.teamUrl}
+                target="_blank"
+                rel="noopener"
+                className="bg-[#111] font-bold px-3 py-1 rounded-lg border transition-colors"
+                style={{ color: appConfig.brand.accent, borderColor: appConfig.brand.accent }}
+              >
+                {appConfig.funnel.teamLabel}
+              </a>
             </div>
-            {appConfig.dashboard.enabled && (
-              <div className="flex items-center gap-3">
-                {hasKey ? (
-                  <a
-                    href={appConfig.dashboard.dashboardUrl}
-                    target="_blank"
-                    rel="noopener"
-                    className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg text-xs hover:border-[var(--fg)] transition-colors"
-                  >
-                    Top Up
-                  </a>
-                ) : (
-                  <a
-                    href={appConfig.dashboard.setupUrl}
-                    target="_blank"
-                    rel="noopener"
-                    className="bg-[#111] border border-[#333] text-white font-bold px-3 py-1 rounded-lg text-xs hover:border-[var(--fg)] transition-colors"
-                  >
-                    Get a key
+          ) : (
+            <div className="flex items-center justify-between mt-2 text-xs">
+              <div className="flex items-center gap-3 text-[var(--muted)]">
+                {appConfig.repoUrl && (() => {
+                  const m = appConfig.repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+                  if (!m) return null;
+                  const [, owner, repo] = m;
+                  return (
+                    <a
+                      className="github-button"
+                      href={appConfig.repoUrl}
+                      data-size="small"
+                      data-show-count="false"
+                      data-target="_blank"
+                      aria-label={`Star ${owner}/${repo} on GitHub`}
+                    >
+                      Star
+                    </a>
+                  );
+                })()}
+                {appConfig.dashboard.enabled && (
+                  <a href={appConfig.dashboard.setupUrl} target="_blank" rel="noopener" className="hover:text-[var(--fg)]">
+                    Your Key
                   </a>
                 )}
+              </div>
+              {appConfig.dashboard.enabled && (
                 <a
                   href={appConfig.dashboard.dashboardUrl}
                   target="_blank"
@@ -291,15 +294,9 @@ export default function Chat() {
                 >
                   Dashboard
                 </a>
-              </div>
-            )}
-          </div>
-          <div className="mt-2 text-[10px] text-[var(--muted)] opacity-60 text-center">
-            Step one is Slash. <a href="https://faf.one" target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">FAF's persistent context</a> is the next multiplier.
-          </div>
-          <div className="mt-1 text-[10px] text-[var(--muted)] opacity-50 text-center">
-            Latest: <a href={`${appConfig.repoUrl}/releases/tag/v${process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}`} target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">v{process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}</a> · April 20, 2026 · <a href={`${appConfig.repoUrl}/releases`} target="_blank" rel="noopener" className="hover:text-[var(--fg)] underline decoration-dotted">Releases</a>
-          </div>
+              )}
+            </div>
+          )}
         </form>
       </div>
     </>
